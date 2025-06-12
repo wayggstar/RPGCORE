@@ -1,0 +1,19 @@
+default-multiplier: 1.2
+base-exp: 1000
+
+levels:
+  1: 0
+  # 생략하면 default-multiplier로 계산됨
+
+points-per-level:
+  default: 1
+  5: 3  # 5레벨 달성 시 3포인트 지급
+  10: 5
+
+
+#이 섹션은 미스틱몹 플러그인이 있을 경우에만 작동합니다.
+mythicmobs:
+  mobs:
+    ZombieBoss: 500
+    SkeletonArcher: 150
+    FireElemental: 300

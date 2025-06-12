@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.2.0-RC"
+    kotlin("jvm") version "2.1.20-RC"
     id("com.gradleup.shadow") version "8.3.0"
     id("xyz.jpenilla.run-paper") version "2.3.1"
 }
@@ -15,11 +15,17 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
+    maven ("https://repo.extendedclip.com/content/repositories/placeholderapi/")
+    maven(url = "https://mvn.lumine.io/repository/maven-public/")
+
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compileOnly("io.lumine:Mythic-Dist:5.6.1")
+    compileOnly("me.clip:placeholderapi:2.11.6")
+
 }
 
 tasks {

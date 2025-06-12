@@ -1,0 +1,11 @@
+level-up: "&a레벨이 {level}레벨이 되었습니다! (+{points} 스탯 포인트)"
+no-points-left: "&c남은 포인트가 없습니다."
+exp-gain: "&e{exp} 경험치를 획득했습니다."
+item.requirement.fail: "&c[착용불가] 요구 스탯이 부족합니다! ({reason})"
+item.given: "&a아이템 {item}을(를) 지급했습니다."
+item.not-found: "&c아이템 ID {id}를 찾을 수 없습니다."
+
+combat:
+  dodge: "&b[회피 성공!]"
+  dodge-notify: "&7상대가 공격을 회피했습니다."
+  crit: "&e[치명타 발동!] &7x{multiplier}"

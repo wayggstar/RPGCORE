@@ -1,0 +1,12 @@
+gui:
+  title: "test"
+  rows: 3
+  background-item:
+    material: "GRAY_STAINED_GLASS_PANE"
+    display-name: " "
+    lore: [ ]
+  stats:
+    - id: "attack-damage"
+      slot: 10
+    - id: "move-speed-per"
+      slot: 12

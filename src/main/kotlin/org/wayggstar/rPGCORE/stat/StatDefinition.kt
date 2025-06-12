@@ -1,3 +1,12 @@
 package org.wayggstar.rPGCORE.stat
 
-data class StatDefinition()
+import org.bukkit.Material
+import org.bukkit.inventory.ItemStack
+
+data class StatDefinition(
+    val id: String,
+    val displayName: String,
+    val icon: Material,
+    val description: List<String>,
+    val effectPerPoint: Map<String, Double>
+)

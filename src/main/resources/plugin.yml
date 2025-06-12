@@ -2,3 +2,9 @@ name: RPGCORE
 version: '1.0'
 main: org.wayggstar.rPGCORE.RPGCORE
 api-version: '1.20'
+softdepend: [MythicMobs, PlaceholderAPI]
+commands:
+  rpgcore:
+    description: RPGCORE 관리자명령어
+  rpgitem:
+    description: RPGItem 관리자명령어

@@ -1,0 +1,18 @@
+stats:
+  attack-damage:
+    display: "공격력"
+    icon: "IRON_SWORD"
+    description:
+      - "현재 값: {current_stat}"
+      - "공격력 증가량: {attack-damage}"
+    per-point:
+      attack-damage: 1.0
+
+  move-speed-per:
+    display: "이동 속도"
+    icon: "FEATHER"
+    description:
+      - "현재 값: {current_stat}"
+      - "속도 증가량: {move-speed-per}"
+    per-point:
+      move-speed-per: 0.5
