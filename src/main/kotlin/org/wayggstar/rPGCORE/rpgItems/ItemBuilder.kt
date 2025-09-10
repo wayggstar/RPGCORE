@@ -42,7 +42,7 @@ object ItemBuilder {
         meta.addItemFlags(
             ItemFlag.HIDE_ATTRIBUTES,
             ItemFlag.HIDE_UNBREAKABLE,
-            ItemFlag.HIDE_ENCHANTS
+            ItemFlag.HIDE_ENCHANTS,
         )
         meta.removeAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE)
         meta.addAttributeModifier(

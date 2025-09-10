@@ -8,5 +8,6 @@ data class StatDefinition(
     val displayName: String,
     val icon: Material,
     val description: List<String>,
-    val effectPerPoint: Map<String, Double>
+    val effectPerPoint: Map<String, Double>,
+    val max: Int = Int.MAX_VALUE
 )

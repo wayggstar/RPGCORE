@@ -13,6 +13,7 @@ import kotlin.math.max
 import kotlin.random.Random
 
 class StatCombatListener: Listener {
+
     @EventHandler
     fun onEntityDamageByEntity(event: EntityDamageByEntityEvent) {
         val attacker = event.damager as? Player ?: return

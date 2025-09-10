@@ -6,7 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.inventory.ItemStack
 
 object StatRegistry {
-    val stats = mutableMapOf<String, StatDefinition>()
+    val stats: MutableMap<String, StatDefinition> = mutableMapOf()
 
     fun loadFromConfig(config: FileConfiguration){
         val section = config.getConfigurationSection("stats") ?: return
@@ -22,7 +22,9 @@ object StatRegistry {
                 statSec.getDouble("per-point.$it")
             } ?: emptyMap()
 
-            stats[key] = StatDefinition(key, display, icon, description, effects)
+            val max = section.getInt("max", Int.MAX_VALUE)
+
+            stats[key] = StatDefinition(key, display, icon, description, effects, max)
         }
     }
 

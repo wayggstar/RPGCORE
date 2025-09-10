@@ -79,7 +79,6 @@ class RPGCoreCommand:CommandExecutor {
                 }
 
             }
-
             else -> sender.sendMessage("§c알 수 없는 명령어입니다.")
         }
         return true

@@ -7,6 +7,7 @@ stats:
       - "공격력 증가량: {attack-damage}"
     per-point:
       attack-damage: 1.0
+    max: 100
 
   move-speed-per:
     display: "이동 속도"
@@ -16,3 +17,4 @@ stats:
       - "속도 증가량: {move-speed-per}"
     per-point:
       move-speed-per: 0.5
+    max: 100

@@ -63,6 +63,7 @@ object StatGui {
             inventory.setItem(slot, statItem)
         }
 
+
         player.openInventory(inventory)
     }
 
@@ -80,16 +81,25 @@ object StatGui {
             val slot = entry["slot"] as? Int ?: continue
 
             if (clickedSlot == slot) {
+                val def = StatRegistry.get(id) ?: continue
+                val currentValue = data.stats.getOrDefault(id, 0)
+
+                if (currentValue >= def.max) {
+                    player.sendMessage(MessageManager.get("max-stat-limit"))
+                    return
+                }
+
                 if (data.availablePoints > 0) {
-                    data.baseStats[id] = data.stats.getOrDefault(id, 0) + 1
+                    data.baseStats[id] = currentValue + 1
                     data.availablePoints -= 1
                     open(player)
                 } else {
-                    player.sendMessage(
-                        MessageManager.get(
-                            "no-points-left"
-                        )
+                    val msg = MessageManager.get(
+                        "no-points-left",
+                        mapOf("max" to def.max.toString())
                     )
+
+                    player.sendMessage(msg)
                 }
                 return
             }

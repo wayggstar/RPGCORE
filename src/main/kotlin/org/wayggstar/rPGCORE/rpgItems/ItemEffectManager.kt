@@ -83,7 +83,7 @@ object ItemEffectManager {
                 }
 
                 val origin = attacker.location
-                val power = attacker.getMagicDamage() as? Float ?: return
+                val power = attacker.getMagicDamage().toFloat()
                 try {
                     MythicBukkit.inst().apiHelper.castSkill(
                         attacker,
