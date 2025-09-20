@@ -1,5 +1,5 @@
 name: RPGCORE
-version: '1.0'
+version: '1.0.1'
 main: org.wayggstar.rPGCORE.RPGCORE
 api-version: '1.20'
 softdepend: [MythicMobs, PlaceholderAPI]
