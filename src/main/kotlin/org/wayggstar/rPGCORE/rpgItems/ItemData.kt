@@ -11,7 +11,8 @@ data class ItemData(
     val requiremnets: Map<String, Int>,
     val stats: Map<String, Double>,
     val weaponStats: Map<String, Double>,
-    val effects: List<ItemEffect>
+    val effects: List<ItemEffect>,
+    val bind: Boolean?
 )
 
 data class ItemEffect(

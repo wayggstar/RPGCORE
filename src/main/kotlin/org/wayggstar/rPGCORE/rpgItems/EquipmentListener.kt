@@ -6,6 +6,8 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.Action
 import org.bukkit.event.inventory.InventoryClickEvent
+import org.bukkit.event.inventory.InventoryType
+import org.bukkit.event.player.PlayerDropItemEvent
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.event.player.PlayerItemHeldEvent
 import org.bukkit.event.player.PlayerJoinEvent
@@ -87,5 +89,46 @@ class EquipmentListener: Listener {
             ItemEffectManager.applyEffect(player, player, effect)
         }
         EquipmentManager.updateEquipment(player)
+    }
+
+    @EventHandler
+    fun onThrowItem(e: PlayerDropItemEvent){
+        val player = e.player
+        val item = e.itemDrop
+        val itemstack = item.itemStack
+        val itemId = ItemUtils.getItemId(itemstack)
+        if (itemId == null) return
+
+        val itemData = ItemDataLoader.getItemById(itemId)
+
+        if (itemData == null) return
+
+        if (itemData.bind ?: false){
+            e.isCancelled = true
+            e.player.sendMessage("§c이 아이템은 버릴 수 없습니다!")
+        }
+    }
+
+    @EventHandler
+    fun onInventoryClickBind(e: InventoryClickEvent) {
+        val player = e.whoClicked
+
+        val inv = e.clickedInventory ?: return
+        val type = inv.type
+
+        val isPlayerInventory = type == InventoryType.PLAYER
+        val isEnderChest = type == InventoryType.ENDER_CHEST
+        val item = e.currentItem
+        val itemId = ItemUtils.getItemId(item)
+        if (itemId == null) return
+
+        val itemData = ItemDataLoader.getItemById(itemId)
+
+        if (itemData == null) return
+
+        if (!isPlayerInventory && !isEnderChest && itemData.bind ?: false) {
+            e.isCancelled = true
+            player.sendMessage("§c이 인벤토리에서는 아이템을 옮길 수 없습니다!")
+        }
     }
 }

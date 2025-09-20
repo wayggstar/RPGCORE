@@ -34,7 +34,8 @@ object ItemDataLoader {
                 ?.mapValues { it.value.toString().toDouble() } ?: emptyMap(),
             weaponStats = config.getConfigurationSection("weaponStats")?.getValues(false)
                 ?.mapValues { it.value.toString().toDouble() } ?: emptyMap(),
-            effects = parseEffects(config.getConfigurationSection("effects"))
+            effects = parseEffects(config.getConfigurationSection("effects")),
+            bind = config.getBoolean("bind") ?: false
         )
     }
 

@@ -25,7 +25,10 @@ object ItemBuilder {
                 replaced = replaced.replace("{$key}", formatted)
             }
             replaced
-        }
+        }.toMutableList()
+
+        if (itemData.bind ?: false) {replacedLore.add(ChatColor.YELLOW.toString() + "귀속됨")}
+        meta.lore = replacedLore
 
         meta.lore = replacedLore
 
@@ -47,7 +50,13 @@ object ItemBuilder {
         meta.removeAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE)
         meta.addAttributeModifier(
             Attribute.GENERIC_ATTACK_DAMAGE,
-            AttributeModifier(UUID.randomUUID(), "nullify", 0.0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND)
+            AttributeModifier(
+                UUID.randomUUID(),
+                "nullify",
+                0.0,
+                AttributeModifier.Operation.ADD_NUMBER,
+                EquipmentSlot.HAND
+            )
         )
 
         item.itemMeta = meta
